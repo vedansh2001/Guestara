@@ -1,0 +1,30 @@
+{
+  "name": "guestara",
+  "version": "1.0.0",
+  "description": "��#\u0000 \u0000G\u0000u\u0000e\u0000s\u0000t\u0000a\u0000r\u0000a\u0000\r\u0000 \u0000",
+  "type": "module",
+  "main": "src/index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node src/index.js",
+    "dev": "nodemon src/index.js"
+  },
+  "keywords": [
+    "nodejs",
+    "mongose",
+    "express",
+    "backend"
+  ],
+  "author": "Vedansh Mishra",
+  "license": "ISC",
+  "devDependencies": {
+    "nodemon": "^3.1.9",
+    "prettier": "^3.4.2"
+  },
+  "dependencies": {
+    "cors": "^2.8.5",
+    "dotenv": "^16.4.7",
+    "express": "^4.21.2",
+    "mongoose": "^8.9.5"
+  }
+}

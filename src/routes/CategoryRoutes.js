@@ -1,6 +1,7 @@
 import express from "express";
 import { 
     createCategory, 
+    deleteCategory, 
     getCategories, 
     getCategoryById, 
     updateCategory 
@@ -19,5 +20,8 @@ router.get("/:id", getCategoryById);
 
 // Update a specific category
 router.put("/:id", updateCategory);
+
+// Delete a specific category
+router.delete("/:id", deleteCategory);
 
 export default router;

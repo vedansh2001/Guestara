@@ -3,6 +3,7 @@ import SubCategory from '../models/Subcategory.models.js';
 import Category from '../models/Category.models.js';
 import mongoose from 'mongoose';
 
+//create item
 export const createItem = async (req, res) => {
     try {
         const category = await Category.findById(req.body.category);
@@ -10,7 +11,9 @@ export const createItem = async (req, res) => {
         
         const item = new Item({
             ...req.body,
+            //if taxApplicability is not provided to the item then set taxApplicability same as that of the taxApplicability of its subcategory
             taxApplicability: req.body.taxApplicability ?? (subCategory ? subCategory.taxApplicability : category.taxApplicability),
+            //similarly for tax also
             tax: req.body.tax ?? (subCategory ? subCategory.tax : category.tax),
             totalAmount: req.body.baseAmount - req.body.discount,
         });
@@ -31,7 +34,7 @@ export const getItems = async (req, res) => {
     }
 };
 
-// Get all the items under a specific category
+// Get all the items under a specific category using category id
 export const getItemsByCategoryId = async (req, res) => {
     try {
         const categoryId = req.params.categoryId;
@@ -53,7 +56,7 @@ export const getItemsByCategoryId = async (req, res) => {
     }
 };
 
-// Get all the items under a specific subCategory
+// Get all the items under a specific subCategory using subcategory id
 export const getItemsBySubCategoryId = async (req, res) => {
     try {
         const subCategoryId = req.params.subCategoryId;
@@ -75,7 +78,7 @@ export const getItemsBySubCategoryId = async (req, res) => {
     }
 };
 
-// Get item by ID
+// Get a specific item by ID
 export const getItemById = async (req, res) => {
     try {
         const item = await Item.findById(req.params.id);
@@ -88,7 +91,7 @@ export const getItemById = async (req, res) => {
     }
 };
 
-// Search for items by name 
+// Search for items by its name 
 export const searchItem = async (req, res) => {
     try {
         const itemName = req.query.name; // Use query parameters
@@ -111,7 +114,7 @@ export const searchItem = async (req, res) => {
     }
 };
 
-// Update items
+// Update items using its ID
 export const updateItem = async (req, res) => {
     try {
         const updatedItem = await Item.findByIdAndUpdate(
@@ -127,3 +130,19 @@ export const updateItem = async (req, res) => {
         res.status(500).json({ error: error.message });
     }
 };
+
+// Delete item by ID
+export const deleteItem = async (req, res) => {
+    try {
+        const deletedItem = await Item.findByIdAndDelete(req.params.id);
+        if (!deletedItem) {
+            return res.status(404).json({ message: "Item not found" });
+        }
+        res.status(200).json({ 
+            message: "Item deleted successfully", 
+            deletedItem 
+        });
+    } catch (error) {
+        res.status(500).json({ error: error.message });
+    }
+ };

@@ -6,7 +6,8 @@ import {
     getItemsBySubCategoryId, 
     getItemById, 
     searchItem, 
-    updateItem 
+    updateItem, 
+    deleteItem
 } from "../controllers/Item.controllers.js";
 
 const router = express.Router();
@@ -29,8 +30,10 @@ router.get("/search", searchItem);
 // Get a specific item by ID
 router.get("/:id", getItemById);
 
-
 // Update a specific item
 router.put("/:id", updateItem);
+
+// Update a specific item
+router.delete("/:id", deleteItem);
 
 export default router;

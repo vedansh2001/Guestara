@@ -1,6 +1,7 @@
 import express from "express";
 import { 
     createSubCategory, 
+    deleteSubCategory, 
     getSubCategories, 
     getSubCategoriesByCategoryId, 
     getSubCategoryById, 
@@ -23,5 +24,8 @@ router.get("/:id", getSubCategoryById);
 
 // Update a specific sub-category
 router.put("/:id", updateSubCategory);
+
+// delete a specific sub-category
+router.delete("/:id", deleteSubCategory);
 
 export default router; 

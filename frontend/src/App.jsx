@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import Card from './components/Card/Card';
 import Modal from './components/Modal/Modal';
 
-const BASE_URL = 'http://localhost:8000/api';
+const BASE_URL = import.meta.env.VITE_BASE_URL;
 
 // const Card = ({ title, data, onEdit, onView, selectedIds, onToggleSelect }) => {
 //   return (

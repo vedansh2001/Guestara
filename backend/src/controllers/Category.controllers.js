@@ -33,16 +33,28 @@ export const getCategories = async (req, res) => {
 
 // Get category by ID
 export const getCategoryById = async (req, res) => {
+    const categoryId = req.params.id;
+
+    // Validate categoryId
+    if (!mongoose.isValidObjectId(categoryId)) {
+        return res.status(400).json({ error: "Invalid category ID format" });
+    }
+
     try {
-        const category = await Category.findById(req.params.id);
+        // Use findById instead of find
+        const category = await Category.findById(categoryId);
+        console.log("Found category:", category);
+
         if (!category) {
             return res.status(404).json({ message: "Category not found" });
         }
+
         res.status(200).json(category);
     } catch (error) {
         res.status(500).json({ error: error.message });
     }
 };
+
 
 // Update category using its Id
 export const updateCategory = async (req, res) => {

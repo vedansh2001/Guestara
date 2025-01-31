@@ -1,0 +1,460 @@
+{
+	"info": {
+		"_postman_id": "3ca07a9f-5b51-4bf1-ad6c-4c14a32112b0",
+		"name": "Guestara",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "41526348"
+	},
+	"item": [
+		{
+			"name": "Category",
+			"item": [
+				{
+					"name": "createCategorye",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"name\": \"Main Course\",\r\n  \"image\": \"https://example.com/image.jpg\",\r\n  \"description\": \"Delicious main courses\",\r\n  \"taxApplicability\": true,\r\n  \"tax\": 18,\r\n  \"taxType\": \"GST\"  \r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8000/api/categories",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"categories"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "getCategories",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8000/api/categories",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"categories"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "getCategoryById",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8000/api/categories?id=6794826e2daee9f3608f9676",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"categories"
+							],
+							"query": [
+								{
+									"key": "id",
+									"value": "6794826e2daee9f3608f9676"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "updateCategory",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"name\": \"Updated Category Name\",\r\n  \"image\": \"http://example.com/updated-image.jpg\",\r\n  \"description\": \"Updated description for the category\",\r\n  \"taxApplicability\": true,\r\n  \"tax\": 15,\r\n  \"taxType\":\"GST\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8000/api/categories/6794826e2daee9f3608f9676",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"categories",
+								"6794826e2daee9f3608f9676"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "deleteCategory",
+					"request": {
+						"method": "GET",
+						"header": []
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Subcategory",
+			"item": [
+				{
+					"name": "createSubCategory",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"Sofas\",\r\n    \"image\": \"https://example.com/sofas.jpg\",\r\n    \"description\": \"Comfortable living room sofas.\",\r\n    \"taxApplicability\": true,\r\n    \"tax\": 12\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8000/api/subcategories/6794826e2daee9f3608f9676",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"subcategories",
+								"6794826e2daee9f3608f9676"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "getSubCategories",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8000/api/subcategories",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"subcategories"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "getSubCategoriesByCategoryId",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8000/api/subcategories/category/6794826e2daee9f3608f9676",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"subcategories",
+								"category",
+								"6794826e2daee9f3608f9676"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "getSubCategoryById",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8000/api/subcategories/6794c76e48dcff312b3a1408",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"subcategories",
+								"6794c76e48dcff312b3a1408"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "updateSubCategory",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"_id\": \"6794c76e48dcff312b3a1408\",\r\n    \"name\": \"Sofas22222223333333333333\",\r\n    \"image\": \"https://example.com/sofas.jpg\",\r\n    \"description\": \"update hogya. yes finally...\",\r\n    \"taxApplicability\": true,\r\n    \"tax\": 12,\r\n    \"category\": \"6794826e2daee9f3608f9676\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8000/api/subcategories/6794c76e48dcff312b3a1408",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"subcategories",
+								"6794c76e48dcff312b3a1408"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "deleteSubCategory",
+					"request": {
+						"method": "GET",
+						"header": []
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Item",
+			"item": [
+				{
+					"name": "createItem",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"name\": \"example 2 hai ye\",\r\n  \"image\": \"https://example.com/modern-sofa.jpg\",\r\n  \"description\": \"A stylish and comfortable modern sofa for your living room.\",\r\n  \"taxApplicability\": true,\r\n  \"tax\": 10,\r\n  \"baseAmount\": 1500,\r\n  \"discount\": 100,\r\n  \"totalAmount\": 1400,\r\n  \"subCategory\": \"679a315455256955cf1cb99a\",\r\n  \"category\": \"679a2433a1536f88ae8f722b\"\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8000/api/items",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"items"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "getItems",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8000/api/items",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"items"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "getItemsByCategoryId",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8000/api/items/category/6794826e2daee9f3608f9676",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"items",
+								"category",
+								"6794826e2daee9f3608f9676"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "getItemsBySubCategoryId",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8000/api/items/subcategory/6794ba31e6329679440513af",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"items",
+								"subcategory",
+								"6794ba31e6329679440513af"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "getItemById",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8000/api/items/679523ab171cf39b21c58950",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"items",
+								"679523ab171cf39b21c58950"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "searchItem",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8000/api/items/search?name=Modern sofa",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"items",
+								"search"
+							],
+							"query": [
+								{
+									"key": "name",
+									"value": "Modern sofa"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "updateItem",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"Modern Sofa\",\r\n    \"image\": \"https://example.com/modern-sofa.jpg\",\r\n    \"description\": \"khali yebhi update hogya\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8000/api/items/679523ab171cf39b21c58950",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"items",
+								"679523ab171cf39b21c58950"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "deleteItem",
+					"request": {
+						"method": "GET",
+						"header": []
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
